@@ -69,6 +69,30 @@ export default function Apropos() {
                 <span ref={progressContent}></span>
               </div>
             </Swiper>
+            <div className="container">
+            <div className="row">
+              <div className="col">
+                <h1 className="text-center">A propos de MovieScope</h1>
+                <p className="text-center">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                  quibusdam quia, repellat quae quidem quod quas quia quod quia
+                  quod quia quod quia quod quia quod quia quod quia quod quia
+                  </p>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <h1 className="text-center">A propos de MovieScope</h1>
+                <p className="text-center">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                  quibusdam quia, repellat quae quidem quod quas quia quod quia
+                  quod quia quod quia quod quia quod quia quod quia quod quia
+                  </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

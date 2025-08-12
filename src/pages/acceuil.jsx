@@ -11,6 +11,34 @@ import "./acceuil.css";
 import { EffectCards, Autoplay } from "swiper/modules";
 export default function Acceuil() {
   const swiperRef = useRef(null);
+  let t = -1;
+
+  function renderBlocks(count, angleMultiplier, signFlip = true) {
+    let blocks = [];
+    for (let n = 0; n < count; n++) {
+      t++;
+      const angle = (angleMultiplier * t) % 360;
+      const sign = signFlip ? (t % 2 ? 1 : -1) : t % 2 ? -1 : 1;
+      blocks.push(
+        <div
+          key={t}
+          className="block"
+          style={{
+            "--index": t,
+            "--angle": angle,
+            "--sign": sign,
+            gridArea: "a" + (n + 1),
+          }}
+        >
+          <div className="face face-1"></div>
+          <div className="face face-2"></div>
+          <div className="face face-3"></div>
+        </div>
+      );
+    }
+    return blocks;
+  }
+
   return (
     <>
       <section className="hero justify-content-center align-items-center">
@@ -19,85 +47,19 @@ export default function Acceuil() {
             <div className="col-md-6">
               <div className="hero-content">
                 <div className="ready">
-                  {/* Lettre R */}
-                  <div className="letter R">
-                    <div
-                      className="block"
-                      style={{
-                        "--index": 0,
-                        "--angle": 0,
-                        "--sign": 1,
-                        gridArea: "a1",
-                      }}
-                    >
-                      <div className="face face-1"></div>
-                      <div className="face face-2"></div>
-                      <div className="face face-3"></div>
-                    </div>
-
-                    <div
-                      className="block"
-                      style={{
-                        "--index": 1,
-                        "--angle": 147,
-                        "--sign": -1,
-                        gridArea: "a2",
-                      }}
-                    >
-                      <div className="face face-1"></div>
-                      <div className="face face-2"></div>
-                      <div className="face face-3"></div>
-                    </div>
-                  </div>
-
-                  {/* Lettre E */}
+                  <div className="letter R">{renderBlocks(11, 147, true)}</div>
                   <div className="letter E">
-                    <div
-                      className="block"
-                      style={{
-                        "--index": 11,
-                        "--angle": 0,
-                        "--sign": 1,
-                        gridArea: "a1",
-                      }}
-                    >
-                      <div className="face face-1"></div>
-                      <div className="face face-2"></div>
-                      <div className="face face-3"></div>
-                    </div>
+                    {renderBlocks(11, -147, false)}
                   </div>
-
-                  {/* Lettre A */}
-                  <div className="letter A">
-                    <div
-                      className="block"
-                      style={{
-                        "--index": 22,
-                        "--angle": 0,
-                        "--sign": 1,
-                        gridArea: "a1",
-                      }}
-                    >
-                      <div className="face face-1"></div>
-                      <div className="face face-2"></div>
-                      <div className="face face-3"></div>
-                    </div>
+                  <div className="letter A">{renderBlocks(10, 147, true)}</div>
+                  <div className="letter D">
+                    {renderBlocks(11, -147, false)}
                   </div>
-
-                  {/* Lettre D */}
-                  <div className="letter D"></div>
-
-                  {/* Lettre Y */}
-                  <div className="letter Y"></div>
+                  <div className="letter Y">{renderBlocks(8, 147, true)}</div>
                 </div>
-
-                {/* <h1>MovieScope</h1>
-                <p>
-                  Découvrez les meilleurs films et séries en un seul endroit.
-                </p> */}
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="siper-slide col-md-6">
               <Swiper
                 effect={"cards"}
                 grabCursor={true}
@@ -106,19 +68,19 @@ export default function Acceuil() {
                   delay: 2000,
                   disableOnInteraction: false, // continue même après interaction
                 }}
-                onSwiper={(swiper) => {
-                  swiperRef.current = swiper;
-                }}
-                onMouseEnter={() => {
-                  if (swiperRef.current?.autoplay) {
-                    swiperRef.current.autoplay.stop();
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (swiperRef.current?.autoplay) {
-                    swiperRef.current.autoplay.start();
-                  }
-                }}
+                // onSwiper={(swiper) => {
+                //   swiperRef.current = swiper;
+                // }}
+                // onMouseEnter={() => {
+                //   if (swiperRef.current?.autoplay) {
+                //     swiperRef.current.autoplay.stop();
+                //   }
+                // }}
+                // onMouseLeave={() => {
+                //   if (swiperRef.current?.autoplay) {
+                //     swiperRef.current.autoplay.start();
+                //   }
+                // }}
                 className="mySwiper"
               >
                 <SwiperSlide>Slide 1</SwiperSlide>
@@ -134,6 +96,9 @@ export default function Acceuil() {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <h1>Acceuil</h1>
       </section>
     </>
   );

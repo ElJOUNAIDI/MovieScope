@@ -99,4 +99,237 @@ body {
 .swiper-slide:nth-child(10n) {
   background-color: rgb(54, 94, 77);
 }
-/*  */
+/* animation hero  */
+:root {
+  --delay: 1000ms;
+  --duration: 6000ms;
+  --size: 25px;
+  --half: calc(var(--size) / 2);
+  --nalf: calc(var(--size) / -2);
+  --total-blocks: 50;
+}
+
+html ,.hero {
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* display: flex; */
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  /* background-image: linear-gradient(to top, #c6c6c6, #ffffff 10vh, #e7e7e7 10vh, #EEE); */
+}
+
+.ready {
+  display: grid;
+  grid-gap: var(--size);
+  grid-template-columns: repeat(5, 1fr);
+
+  animation: lateral var(--duration) linear infinite both;
+  animation-delay: calc(var(--delay) / 2);
+}
+
+.R {
+  grid-template-areas:
+    "a1 a6 a8"
+    "a2 . a9"
+    "a3 a7 ."
+    "a4 . a10"
+    "a5 . a11";
+}
+
+.R > :nth-child(8),
+.R > :nth-child(9) {
+  top: var(--half);
+  position: relative;
+}
+.R > :nth-child(10) {
+  left: var(--nalf);
+  position: relative;
+}
+
+.E {
+  grid-template-areas:
+    "a1 a6 a9"
+    "a2 . ."
+    "a3 a7 a10"
+    "a4 . ."
+    "a5 a8 a11";
+}
+
+.A {
+  grid-template-areas:
+    ". a1 ."
+    "a2 . a7"
+    "a3 . a8"
+    "a4 a6 a9"
+    "a5 . a10";
+}
+
+.A > :nth-child(2) {
+  left: var(--half);
+  position: relative;
+}
+
+.A > :nth-child(7) {
+  left: var(--nalf);
+  position: relative;
+}
+
+.D {
+  grid-template-areas:
+    "a1 a6 a8"
+    "a2 . a9"
+    "a3 . a10"
+    "a4 . a11"
+    "a5 a7 .";
+}
+
+.D > :nth-child(n + 8) {
+  top: var(--half);
+  position: relative;
+}
+
+.Y {
+  grid-template-areas:
+    "a1 . a6"
+    "a2 . a7"
+    "a3 . a8"
+    ". a4 ."
+    ". a5 .";
+}
+
+.Y > :nth-child(3) {
+  left: var(--half);
+  position: relative;
+}
+
+.Y > :nth-child(8) {
+  left: var(--nalf);
+  position: relative;
+}
+
+.letter {
+  display: grid;
+  grid-gap: 4px;
+}
+
+.block {
+  --ratio: calc(var(--index) / var(--total-blocks));
+  --delay-block: calc(calc(var(--ratio) * (var(--delay) / 2)) + (var(--delay) / 2));
+
+  transform-style: preserve-3d;
+  transform: rotate(calc(var(--angle) * 1deg))
+    translate3d(calc(var(--sign) * 200vw), 0, 0)
+    rotate3d(1, 0, 0, -90deg)
+    rotate3d(0, 1, 0, 90deg);
+
+  animation-name: block-intro;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-delay: var(--delay-block);
+  animation-direction: reverse;
+  animation-duration: var(--duration);
+
+  position: relative;
+  z-index: -1;
+  height: var(--size);
+  width: var(--size);
+  will-change: transform;
+}
+
+.block .face {
+  display: block;
+  position: absolute;
+  background-color: #2e92de;
+  backface-visibility: visible;
+  width: var(--size);
+  height: var(--size);
+  border: solid 1px #2f454f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block .face-1 {
+  transform-origin: bottom center;
+}
+
+.block .face-2 {
+  transform: rotateX(-90deg);
+  transform-origin: bottom center;
+  overflow: hidden;
+}
+
+.block .face-2::before {
+  content: '';
+  position: absolute;
+  background-color: #00d2ff99;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: shimmer var(--duration) linear;
+  animation-delay: var(--delay-block);
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.block .face-3 {
+  transform: rotateY(90deg);
+  transform-origin: right center;
+}
+
+@keyframes block-intro {
+  40% {
+    transform: rotate(0deg) translate3d(0, 0, 0)
+      rotate3d(1, 0, 0, -90deg)
+      rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: cubic-bezier(.95, .05, .8, .04);
+  }
+  70% {
+    transform: rotate(0deg) translate3d(0, 0, 0)
+      rotate3d(1, 0, 0, -90deg)
+      rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: linear;
+  }
+  80% {
+    transform: rotate(0deg) translate3d(0, 0, 0)
+      rotate3d(1, 0, 0, 0deg)
+      rotate3d(0, 1, 0, 0deg);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: rotate(0deg) translate3d(150vw, 0, 0)
+      rotate3d(1, 0, 0, 0deg)
+      rotate3d(0, 1, 0, 0deg);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes lateral {
+  from {
+    transform: translateX(12%);
+  }
+  to {
+    transform: translateX(-12%);
+  }
+}
+
+@keyframes shimmer {
+  from, 25% {
+    transform: scale(2, 1) rotate(-45deg) translate(-100%);
+  }
+  35%, to {
+    transform: scale(2, 1) rotate(-45deg) translate(0%);
+  }
+}
