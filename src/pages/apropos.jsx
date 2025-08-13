@@ -69,29 +69,28 @@ export default function Apropos() {
                 </svg>
                 <span ref={progressContent}></span>
               </div>
-            </Swiper>
-            <div className="container">
-            <div className="row">
-              <div className="col">
-                <h1 className="text-center">A propos de MovieScope</h1>
-                <p className="text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                  quibusdam quia, repellat quae quidem quod quas quia quod quia
-                  quod quia quod quia quod quia quod quia quod quia quod quia
-                  </p>
-              </div>
-            </div>
+            </Swiper>  
           </div>
-          </div>
-          <div className="container">
+          
+          <div className="container mt-4 mb-3">
             <div className="row">
-              <div className="col">
+              <div className="info_apropos col">
                 <h1 className="text-center">A propos de MovieScope</h1>
-                <p className="text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                  quibusdam quia, repellat quae quidem quod quas quia quod quia
-                  quod quia quod quia quod quia quod quia quod quia quod quia
-                  </p>
+                <div className="row mt-4">
+                  <div className="col">
+                    <div className="card">
+                      <div className="card-body text-center">
+                        <p className="card-text">
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card's content.
+                        </p>
+                        <a href="/" className="btn">
+                          Movie
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

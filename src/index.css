@@ -27,13 +27,15 @@ nav img{
   color: var(--off-white) !important;
   font-weight: bold;
 }
-.collapse form .btn{
+/* apropos button */
+.collapse form .btn , .appropos .container .info_apropos .btn{
   color: var(--off-white) !important;
   font-weight: bold;
   background-color: var(--primary-color);
   transition: all 0.3s ease-in-out;
 }
-.collapse form .btn:hover{
+.collapse form .btn:hover , .appropos .container .info_apropos .btn:hover{
+  color: var(--primary-color) !important;
 
   background-color: var(--secondary-color);
 }
@@ -67,5 +69,27 @@ nav img{
   filter: brightness(0.4);
  }
  .appropos .img_slider{
-  height: 100vh;
+  height: 60vh;
  }
+ .appropos .container .row .info_apropos h1{
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+ }
+/* footer */
+.footer{
+  padding: 10px  0px  ;
+  background-color: var(--primary-color);
+  color: var(--off-white);
+}
+.footer h1{
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.footer h1:hover{
+  color: var(--secondary-color);
+}
