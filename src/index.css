@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --primary-color: #730C04;
   --secondary-color: #0D0101;
@@ -10,7 +13,7 @@
 }
 /* Header */
 nav {
-   position: fixed !important;
+    position: fixed !important;
     top: 0; 
     left: 0; 
     right: 0; 

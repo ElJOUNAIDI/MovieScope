@@ -4,6 +4,7 @@ import jujutsu from "../images/jujutsu.webp";
 import naruto from "../images/naruto.png";
 import myhero from "../images/myhero.webp";
 
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
