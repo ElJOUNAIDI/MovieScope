@@ -7,7 +7,7 @@ import Movie from "./pages/movie";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header />
       <Routes>
         <Route path="/" element={<Acceuil />} />
