@@ -27,14 +27,16 @@ nav img{
   color: var(--off-white) !important;
   font-weight: bold;
 }
-/* apropos button */
-.collapse form .btn , .appropos .container .info_apropos .btn{
-  color: var(--off-white) !important;
+/* apropos button et movies */
+.collapse form .btn , .appropos .container .info_apropos .btn 
+, .movies .movies_film .card  .btn{
+  color: var(--off-white) !important; 
   font-weight: bold;
   background-color: var(--primary-color);
   transition: all 0.3s ease-in-out;
 }
-.collapse form .btn:hover , .appropos .container .info_apropos .btn:hover{
+.collapse form .btn:hover , .appropos .container .info_apropos .btn:hover ,
+.movies .movies_film .card  .btn:hover{
   color: var(--primary-color) !important;
 
   background-color: var(--secondary-color);
@@ -79,9 +81,29 @@ nav img{
   transition: all 0.3s ease-in-out;
  }
  /* Movie */
- .movies{
-  height: 100vh;
+ .movies .movies_film .card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
  }
+ .movies .movies_film .card .card-body h5{
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+ .movies .movies_film .card .card-body h5:hover{
+  color: var(--primary-color);
+}
+ .movies .movies_film .card .card-body p {
+   display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+
 /* footer */
 .footer{
   padding: 10px  0px  ;

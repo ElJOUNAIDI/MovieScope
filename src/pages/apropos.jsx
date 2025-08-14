@@ -4,7 +4,6 @@ import jujutsu from "../images/jujutsu.webp";
 import naruto from "../images/naruto.png";
 import myhero from "../images/myhero.webp";
 
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -69,9 +68,9 @@ export default function Apropos() {
                 </svg>
                 <span ref={progressContent}></span>
               </div>
-            </Swiper>  
+            </Swiper>
           </div>
-          
+
           <div className="container mt-4 mb-3">
             <div className="row">
               <div className="info_apropos col">
@@ -81,8 +80,11 @@ export default function Apropos() {
                     <div className="card">
                       <div className="card-body text-center">
                         <p className="card-text">
-                          Some quick example text to build on the card title and
-                          make up the bulk of the card's content.
+                          MovieScope, une plateforme fictive de critique et de
+                          recommandation de films, souhaite proposer à ses
+                          utilisateurs une expérience fluide et interactive pour
+                          découvrir de nouveaux films et consulter leurs
+                          détails.
                         </p>
                         <a href="/" className="btn">
                           Movie
