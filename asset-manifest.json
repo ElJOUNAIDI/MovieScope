@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MovieScope/static/css/main.0a6b119d.css",
-    "main.js": "/MovieScope/static/js/main.4ea24400.js",
+    "main.js": "/MovieScope/static/js/main.e9e4a594.js",
     "static/js/453.bf405726.chunk.js": "/MovieScope/static/js/453.bf405726.chunk.js",
     "static/media/naruto.png": "/MovieScope/static/media/naruto.4dc2a3d2317f536cda5b.png",
     "static/media/squid_gam.png": "/MovieScope/static/media/squid_gam.38b5eb21961a27b013e8.png",
@@ -19,11 +19,11 @@
     "static/media/jujutsu.webp": "/MovieScope/static/media/jujutsu.1dba2045ff77f6936a68.webp",
     "index.html": "/MovieScope/index.html",
     "main.0a6b119d.css.map": "/MovieScope/static/css/main.0a6b119d.css.map",
-    "main.4ea24400.js.map": "/MovieScope/static/js/main.4ea24400.js.map",
+    "main.e9e4a594.js.map": "/MovieScope/static/js/main.e9e4a594.js.map",
     "453.bf405726.chunk.js.map": "/MovieScope/static/js/453.bf405726.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0a6b119d.css",
-    "static/js/main.4ea24400.js"
+    "static/js/main.e9e4a594.js"
   ]
 }
