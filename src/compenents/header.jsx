@@ -29,6 +29,11 @@ export default function Header() {
                   A propos
                 </a>
               </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/movies">
+                  Movies
+                </a>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input

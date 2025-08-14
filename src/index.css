@@ -78,6 +78,10 @@ nav img{
   cursor: pointer;
   transition: all 0.3s ease-in-out;
  }
+ /* Movie */
+ .movies{
+  height: 100vh;
+ }
 /* footer */
 .footer{
   padding: 10px  0px  ;
