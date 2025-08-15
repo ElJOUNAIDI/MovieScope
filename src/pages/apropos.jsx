@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 import "./style.css";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 export default function Apropos() {
   // Déclarations nécessaires
@@ -86,9 +87,9 @@ export default function Apropos() {
                           découvrir de nouveaux films et consulter leurs
                           détails.
                         </p>
-                        <a href="/" className="btn">
+                        <Link to="/" className="btn">
                           Movie
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
