@@ -87,7 +87,7 @@ export default function Apropos() {
                           découvrir de nouveaux films et consulter leurs
                           détails.
                         </p>
-                        <Link to="/" className="btn">
+                        <Link to="/movies" className="btn">
                           Movie
                         </Link>
                       </div>

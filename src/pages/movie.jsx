@@ -1,22 +1,40 @@
 import React, { useEffect, useState } from "react";
 import * as XLSX from "xlsx";
-
+import { useParams , useNavigate, Link } from "react-router-dom";
 export default function Movie() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
+  const { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + "/movies.xlsx")
   .then((res) => res.arrayBuffer())
   .then((buffer) => {
-    const workbook = XLSX.read(buffer, { type: "array" }); // type: "array" pour ArrayBuffer
+    const workbook = XLSX.read(buffer, { type: "array" }); 
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];
     const jsonData = XLSX.utils.sheet_to_json(worksheet);
     setMovies(jsonData);
+
+        // Si on a un ID dans l'URL → trouver le film
+        if (id) {
+          const movieFound = jsonData.find((m) => String(m.id) === id);
+          if (movieFound) {
+            setSelectedMovie(movieFound);
+            // Ouvrir le modal Bootstrap automatiquement
+            setTimeout(() => {
+              const modalElement = document.getElementById("movieModal");
+              const modal = new window.bootstrap.Modal(modalElement);
+              modal.show();
+              modalElement.addEventListener("hidden.bs.modal", () => {
+                navigate("/movies");
+              }, { once: true });
+            }, 100);
+          }
+        }
   })
   .catch((err) => console.error("Erreur chargement Excel :", err));
-  }, []);
+  }, [id, navigate]);
 
   return (
     <div className="movies">
@@ -39,7 +57,12 @@ export default function Movie() {
                     <p><strong>Genre:</strong> {movie.genre}</p>
                     <p><strong>Note:</strong> {movie.rating}</p>
                   </div>
-                  <button className="btn" data-bs-toggle="modal" data-bs-target="#movieModal" onClick={() => setSelectedMovie(movie)}>Lire plus</button>
+                  <Link
+                  to={`/movies/${movie.id}`}
+                  className="btn"
+                >
+                  Lire plus
+                </Link>
                 </div>
               </div>
             ))}
