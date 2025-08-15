@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import * as XLSX from "xlsx";
-import { useParams , useNavigate, Link } from "react-router-dom";
+import { useParams , useNavigate, Link, useLocation } from "react-router-dom";
 export default function Movie() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Récupérer paramètre search de l'URL
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search") || "";
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + "/movies.xlsx")
   .then((res) => res.arrayBuffer())
@@ -35,14 +40,18 @@ export default function Movie() {
   })
   .catch((err) => console.error("Erreur chargement Excel :", err));
   }, [id, navigate]);
-
+// Filtrer les films selon la recherche
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   return (
     <div className="movies">
       <div className="container mt-5">
         <h1 className="text-center mt-5">Movies</h1>
         <div className="movies_film">
           <div className="row">
-            {movies.map((movie) => (
+            {filteredMovies.length > 0 ? (
+              filteredMovies.map((movie) => (
               <div className="col-12 col-md-4 col-lg-3 mb-4" key={movie.id}>
                 <div className="card">
                   <img
@@ -65,7 +74,16 @@ export default function Movie() {
                 </Link>
                 </div>
               </div>
-            ))}
+            ))
+            )
+            : (
+              <div className="container d-flex text-center mt-4 vh-100 justify-content-center align-items-center ">
+                <div className="">
+                  <h4>Aucun film trouvé</h4>
+                  <p>Essayez une autre recherche</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         {/* Modal Bootstrap */}

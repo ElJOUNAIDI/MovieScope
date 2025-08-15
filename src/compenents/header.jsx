@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../images/logo-removebg-preview.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function Header() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+    const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim() !== "") {
+      navigate(`/movies?search=${encodeURIComponent(searchTerm)}`);
+    } else {
+      navigate("/movies");
+    }
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg ">
@@ -36,12 +46,13 @@ export default function Header() {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            <form className="d-flex" role="search" onSubmit={handleSearch}>
               <input
                 className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button className="btn " type="submit">
                 Search
